@@ -1,6 +1,6 @@
 [package]
 name = "egui_path_picker"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["TCA"]
 description = "Simple egui widget for picking paths "
@@ -14,5 +14,5 @@ categories = ["gui"]
 egui = "0.32.1"
 
 [lib]
-name = "egui_file_picker"
+name = "egui_path_picker"
 path = "src/lib.rs"
