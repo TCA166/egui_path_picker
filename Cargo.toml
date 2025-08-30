@@ -1,9 +1,9 @@
 [package]
-name = "egui_file_picker"
+name = "egui_path_picker"
 version = "0.1.0"
 edition = "2024"
 authors = ["TCA"]
-description = "Simple egui widget for picking file paths "
+description = "Simple egui widget for picking paths "
 readme = "README.md"
 repository = "https://github.com/TCA166/egui_file_picker"
 license = "GPL-3.0-only"
