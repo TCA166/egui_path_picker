@@ -1,2 +1,7 @@
-# egui_file_picker
-Simple egui widget for picking file paths
+# egui_path_picker
+
+Simple egui widget for picking paths.
+It boils down to a text input, next to a button that opens a little widget
+which showcases local files and folders. Clicking the entries within the
+widget will update the path in the text input, meaning you can either
+paste in a path, or find the desired path through the widget.
