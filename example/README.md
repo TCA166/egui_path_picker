@@ -1,4 +1,4 @@
-# examples
+# example
 
 Here you can find a simple `eframe` app built to showcase the widget.
 If you are merely interested in how to use the widget, take a look at

@@ -36,7 +36,7 @@ fn main() {
             .start(
                 canvas,
                 web_options,
-                Box::new(|cc| Ok(Box::new(ExampleApp::default()))),
+                Box::new(|_cc| Ok(Box::new(ExampleApp::default()))),
             )
             .await;
 
