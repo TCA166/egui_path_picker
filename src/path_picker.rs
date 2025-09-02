@@ -1,5 +1,5 @@
 use std::{
-    fs::read_dir,
+    fs::{canonicalize, read_dir},
     marker::PhantomData,
     path::{Path, PathBuf},
 };
@@ -50,32 +50,32 @@ impl<'input, 'path, S: TextBuffer, I: IconProvider> PathPicker<'input, 'path, S,
                 search_path = search_path.parent().unwrap_or(self.default_path).to_owned();
             }
 
-            search_path = search_path.canonicalize().unwrap();
-
-            if let Some(parent) = search_path.parent() {
-                if ui.button(I::BACK_ICON).clicked() {
-                    self.input.replace_with(parent.to_string_lossy().as_ref());
+            if let Ok(search_path) = canonicalize(search_path) {
+                if let Some(parent) = search_path.parent() {
+                    if ui.button(I::BACK_ICON).clicked() {
+                        self.input.replace_with(parent.to_string_lossy().as_ref());
+                    }
                 }
-            }
 
-            if let Ok(iter) = read_dir(search_path) {
-                for ent in iter {
-                    if let Ok(ent) = ent {
-                        let path = ent.path();
+                if let Ok(iter) = read_dir(search_path) {
+                    for ent in iter {
+                        if let Ok(ent) = ent {
+                            let path = ent.path();
 
-                        let icon = if path.is_file() {
-                            I::FILE_ICON
-                        } else {
-                            I::FOLDER_ICON
-                        };
+                            let icon = if path.is_file() {
+                                I::FILE_ICON
+                            } else {
+                                I::FOLDER_ICON
+                            };
 
-                        if ui
-                            .button(format!("{} {}", icon, ent.file_name().display()))
-                            .clicked()
-                        {
-                            self.input.replace_with(path.to_string_lossy().as_ref());
-                            if path.is_file() {
-                                ui.close();
+                            if ui
+                                .button(format!("{} {}", icon, ent.file_name().display()))
+                                .clicked()
+                            {
+                                self.input.replace_with(path.to_string_lossy().as_ref());
+                                if path.is_file() {
+                                    ui.close();
+                                }
                             }
                         }
                     }
