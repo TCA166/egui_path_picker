@@ -1,0 +1,18 @@
+[package]
+name = "example"
+version = "0.1.0"
+edition = "2024"
+authors = ["TCA"]
+readme = "README.md"
+publish = false
+
+[dependencies]
+egui = "0.32.1"
+eframe = "0.32.1"
+egui_path_picker = { path = "../" }
+wasm-bindgen-futures = "0.4.50"
+web-sys = "0.3.77"
+
+[[bin]]
+name = "egui_path_picker_example"
+path = "src/main.rs"

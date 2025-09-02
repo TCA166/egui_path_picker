@@ -13,16 +13,9 @@ categories = ["gui"]
 [dependencies]
 egui = "0.32.1"
 
-[dev-dependencies]
-eframe = "0.32.1"
+[workspace]
+members = ["example"]
 
 [lib]
 name = "egui_path_picker"
 path = "src/lib.rs"
-
-[[example]]
-name = "native"
-
-[[example]]
-crate-type = ["staticlib"]
-name = "app"

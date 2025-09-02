@@ -14,3 +14,6 @@ paste in a path, or find the desired path through the widget.
 Originally developed for the needs of my other project
 [grapevine](https://github.com/TCA166/grapevine), where I needed
 something simple and basic.
+
+Be sure to look in the [`example`](./example) directory for an example
+`eframe` app using this crate.
